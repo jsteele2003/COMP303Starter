@@ -1,7 +1,7 @@
-package ca.mcgill.comp303.cards;
+package cards;
 
-import ca.mcgill.comp303.cards.Card.Rank;
-import ca.mcgill.comp303.cards.Card.Suit;
+import cards.Card.Rank;
+import cards.Card.Suit;
 
 import java.util.Collections;
 import java.util.Iterator;
@@ -16,7 +16,7 @@ import java.util.Stack;
  */
 public class Deck
 {
-private final Stack<Card> aCards = new Stack<>();
+	private Stack<Card> aCards = new Stack<>();
 	
 
 /**
@@ -41,22 +41,29 @@ private final Stack<Card> aCards = new Stack<>();
  */
 	public Deck( Deck pDeck )
 	{
-		for( Card card : pDeck.aCards )
+		aCards = new Stack<Card>();
+		reset();
+		shuffle();
+	}
+	
+	
+	
+	private void reset()
+	{
+		aCards.clear();
+		for( Suit lSuit : Suit.values() )
 		{
-			aCards.add(new Card(card));
+            for( Rank lRank : Rank.values() )
+            {
+                aCards.add( Card.get( lRank, lSuit ));
+            }
 		}
 	}
 	
+	
 	public void shuffle()
 	{
-		aCards.clear();
-		for( Suit suit : Suit.values() )
-		{
-			for( Rank rank : Rank.values())
-			{
-				aCards.push(new Card(rank, suit));
-			}
-		}
+		reset();
 		Collections.shuffle(aCards);
 	}
 	

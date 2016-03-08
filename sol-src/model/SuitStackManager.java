@@ -3,9 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
-import ca.mcgill.comp303.cards.Card;
-//import ca.mcgill.cs.stg.solitaire.cards.Card.Rank;
-//import ca.mcgill.cs.stg.solitaire.model.GameModel.SuitStackIndex;
+import cards.Card;
 
 public class SuitStackManager
 {
